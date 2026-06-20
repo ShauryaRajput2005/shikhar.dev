@@ -1,0 +1,48 @@
+---
+title: "JURIS"
+description: "JURIS is an AI-powered legal intelligence platform that uses Retrieval-Augmented Generation (RAG) to help users understand legal information, analyze documents, and obtain context-aware responses grounded in a legal knowledge base."
+technologies: ["React", "Next.js", "Python", "FastAPI", "Pinecone", "LangChain", "OpenAI"]
+featured: true
+---
+
+# JURIS
+
+Making legal information easier to understand through AI-powered retrieval and explanation.
+
+## Overview
+
+JURIS is an AI-powered legal intelligence platform designed to bridge the gap between complex legal jargon and everyday understanding. By utilizing Retrieval-Augmented Generation (RAG), JURIS empowers users to query legal documents, analyze case files, and receive highly accurate, context-aware explanations that are grounded in a verified legal knowledge base.
+
+## The Problem
+
+Legal documents and case laws are notoriously dense, difficult to parse, and often inaccessible to the average person. Traditional search engines fail to understand the nuance of legal questions, leading to confusion and potential misinformation.
+
+## The Solution
+
+JURIS provides an intuitive chat-based interface where users can ask legal questions in plain English. The system retrieves relevant legal precedents and statutes from its vector database and uses a Large Language Model to synthesize a clear, understandable response.
+
+## Architecture & RAG Pipeline
+
+JURIS employs a modern full-stack architecture with a specialized AI pipeline:
+
+1.  **Document Ingestion:** Legal documents are parsed, chunked, and embedded using advanced embedding models.
+2.  **Vector Storage:** The embeddings are stored in Pinecone for rapid semantic retrieval.
+3.  **User Query:** A user submits a question via the Next.js frontend.
+4.  **Retrieval:** The FastAPI backend searches Pinecone for the most relevant context.
+5.  **Generation:** LangChain orchestrates the prompt with the retrieved context and sends it to OpenAI to generate the final response.
+
+## Technical Challenges
+
+*   **Chunking Strategy:** Ensuring legal clauses were not split inappropriately during the ingestion process.
+*   **Latency:** Optimizing the retrieval pipeline to ensure fast response times for the end-user.
+*   **Hallucination Mitigation:** Strictly grounding the LLM's responses using only the retrieved context to prevent inaccurate legal advice.
+
+## Results
+
+JURIS successfully demonstrates how AI can democratize access to specialized knowledge, transforming dense legal texts into accessible, actionable information.
+
+## Future Roadmap
+
+*   Integration with live legal databases for real-time updates.
+*   Support for multi-document comparative analysis.
+*   User authentication and personalized case history.

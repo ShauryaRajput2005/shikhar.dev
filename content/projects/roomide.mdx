@@ -1,0 +1,50 @@
+---
+title: "RoomIDE"
+description: "RoomIDE enables users to create collaborative coding rooms where multiple developers can write, edit, and execute code together in real time."
+technologies: ["React", "TypeScript", "Node.js", "Express", "Socket.io", "Monaco Editor"]
+featured: true
+---
+
+# RoomIDE
+
+Browser-based collaborative coding platform for real-time teamwork.
+
+## Overview
+
+RoomIDE is a lightweight, browser-based collaborative development environment that allows developers to code together in real time. Designed for remote pair programming, technical interviews, and team debugging sessions, RoomIDE provides a seamless and synchronized coding experience.
+
+## The Problem
+
+Traditional screen sharing for collaborative coding is often slow, clunky, and unidirectional. Existing collaborative IDEs can be overly complex to set up or require account creation, creating friction for quick, spontaneous coding sessions.
+
+## The Solution
+
+RoomIDE offers an instant-access, real-time code editor. Users can simply generate a room link and share it with their peers. Once joined, all participants can view and edit the code simultaneously, with changes reflected instantly across all clients.
+
+## Architecture
+
+*   **Frontend:** Built with React and TypeScript, leveraging the Monaco Editor (the core of VS Code) for a familiar and powerful coding interface.
+*   **Backend:** A Node.js and Express server that handles room management and real-time communication.
+*   **Real-time Engine:** Socket.io is used for robust, low-latency bi-directional event emission between the server and the connected clients.
+
+## WebSocket Design & Synchronization Logic
+
+The core challenge of RoomIDE is maintaining state consistency across multiple clients. 
+
+When a user types, an `onChange` event is fired by the Monaco Editor. This change is broadcasted via a WebSocket connection to the server. The server then relays this change payload to all other clients in the specific room. To prevent infinite loops of updates, the client logic checks whether an incoming change originated from a remote user before applying it to the editor instance.
+
+## Technical Challenges
+
+*   **Cursor Synchronization:** Implementing real-time cursors and selections for remote users to clearly indicate who is editing what.
+*   **Conflict Resolution:** Handling edge cases where simultaneous edits occur, ensuring eventual consistency.
+*   **Performance:** Maintaining smooth editor performance even with rapid, continuous updates over the WebSocket connection.
+
+## Results
+
+RoomIDE provides a highly responsive and intuitive collaborative coding experience, significantly reducing the friction involved in remote technical collaboration.
+
+## Future Roadmap
+
+*   Integrated terminal for remote code execution.
+*   Voice and video chat integration within the room.
+*   Support for multi-file project structures and file trees.
