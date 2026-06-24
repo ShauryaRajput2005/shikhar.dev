@@ -12,6 +12,7 @@ export type ProjectFrontmatter = {
   demo?: string;
   featured: boolean;
   thumbnail?: string;
+  architecture?: string;
 };
 
 export type Project = {
@@ -20,13 +21,20 @@ export type Project = {
   content: string;
 };
 
+// Module-level cache — lives for the lifetime of the server process
+let projectsCache: Project[] | null = null;
+const projectBySlugCache = new Map<string, Project | null>();
+
 export function getProjects(): Project[] {
+  if (projectsCache) return projectsCache;
+
   if (!fs.existsSync(contentDir)) {
-    return [];
+    projectsCache = [];
+    return projectsCache;
   }
 
   const files = fs.readdirSync(contentDir);
-  const projects = files
+  projectsCache = files
     .filter((filename) => filename.endsWith('.mdx'))
     .map((filename) => {
       const slug = filename.replace('.mdx', '');
@@ -41,21 +49,29 @@ export function getProjects(): Project[] {
       };
     });
 
-  return projects;
+  return projectsCache;
 }
 
 export function getProjectBySlug(slug: string): Project | null {
+  if (projectBySlugCache.has(slug)) {
+    return projectBySlugCache.get(slug)!;
+  }
+
   const filePath = path.join(contentDir, `${slug}.mdx`);
   if (!fs.existsSync(filePath)) {
+    projectBySlugCache.set(slug, null);
     return null;
   }
 
   const fileContent = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(fileContent);
 
-  return {
+  const project: Project = {
     slug,
     frontmatter: data as ProjectFrontmatter,
     content,
   };
+
+  projectBySlugCache.set(slug, project);
+  return project;
 }

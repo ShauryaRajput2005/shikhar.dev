@@ -3,6 +3,7 @@ title: "RoomIDE"
 description: "RoomIDE enables users to create collaborative coding rooms where multiple developers can write, edit, and execute code together in real time."
 technologies: ["React", "TypeScript", "Node.js", "Express", "Socket.io", "Monaco Editor"]
 featured: true
+architecture: "/assets/roomIDE-architecture.png"
 ---
 
 # RoomIDE
@@ -22,6 +23,8 @@ Traditional screen sharing for collaborative coding is often slow, clunky, and u
 RoomIDE offers an instant-access, real-time code editor. Users can simply generate a room link and share it with their peers. Once joined, all participants can view and edit the code simultaneously, with changes reflected instantly across all clients.
 
 ## Architecture
+
+<ArchitectureDiagram src="/assets/roomIDE-architecture.png" alt="RoomIDE System Architecture" />
 
 *   **Frontend:** Built with React and TypeScript, leveraging the Monaco Editor (the core of VS Code) for a familiar and powerful coding interface.
 *   **Backend:** A Node.js and Express server that handles room management and real-time communication.

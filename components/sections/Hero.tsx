@@ -152,14 +152,15 @@ export function Hero() {
           <motion.div
             animate={{ y: [-10, 10, -10] }}
             transition={{ duration: 6, ease: "easeInOut", repeat: Infinity }}
-            className="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden border border-border bg-card/50 shadow-2xl backdrop-blur-sm"
+            className="relative w-full max-w-sm rounded-3xl overflow-hidden border border-border bg-card/50 shadow-2xl backdrop-blur-sm"
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent mix-blend-overlay z-10" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent mix-blend-overlay z-10 pointer-events-none" />
             <Image
-              src="/assets/hero/illustration.png"
-              alt="Shikhar Shaurya Developer Illustration"
-              fill
-              className="object-cover object-center scale-105"
+              src="/Potrait.png"
+              alt="Shikhar Shaurya Portrait"
+              width={768}
+              height={1376}
+              className="w-full h-auto"
               priority
             />
           </motion.div>

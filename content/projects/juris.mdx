@@ -3,6 +3,7 @@ title: "JURIS"
 description: "JURIS is an AI-powered legal intelligence platform that uses Retrieval-Augmented Generation (RAG) to help users understand legal information, analyze documents, and obtain context-aware responses grounded in a legal knowledge base."
 technologies: ["React", "Next.js", "Python", "FastAPI", "Pinecone", "LangChain", "OpenAI"]
 featured: true
+architecture: "/assets/juris-architecture.png"
 ---
 
 # JURIS
@@ -22,6 +23,8 @@ Legal documents and case laws are notoriously dense, difficult to parse, and oft
 JURIS provides an intuitive chat-based interface where users can ask legal questions in plain English. The system retrieves relevant legal precedents and statutes from its vector database and uses a Large Language Model to synthesize a clear, understandable response.
 
 ## Architecture & RAG Pipeline
+
+<ArchitectureDiagram src="/assets/juris-architecture.png" alt="JURIS RAG Pipeline Architecture" />
 
 JURIS employs a modern full-stack architecture with a specialized AI pipeline:
 
