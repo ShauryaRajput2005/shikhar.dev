@@ -53,13 +53,13 @@ export function Navbar() {
             : "bg-transparent py-6"
         )}
       >
-        <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold tracking-tighter">
+        <div className="container mx-auto px-6 md:px-12 flex items-center justify-between gap-4">
+          <Link href="/" className="text-xl font-bold tracking-tighter shrink-0">
             Shikhar<span className="text-primary">.dev</span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -70,7 +70,7 @@ export function Navbar() {
               </Link>
             ))}
             <Link
-              href="/assets/resume/resume.pdf"
+              href="/assets/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-medium px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors"
@@ -108,7 +108,7 @@ export function Navbar() {
             </Link>
           ))}
           <Link
-            href="/assets/resume/resume.pdf"
+            href="/assets/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsMobileMenuOpen(false)}

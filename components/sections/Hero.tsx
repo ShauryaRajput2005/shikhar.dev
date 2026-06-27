@@ -108,7 +108,7 @@ export function Hero() {
               Contact Me <ArrowRight size={18} />
             </Link>
             <a
-              href="/assets/resume/resume.pdf"
+              href="/assets/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-colors flex items-center gap-2 border border-border"
@@ -116,7 +116,7 @@ export function Hero() {
               View Resume <ExternalLink size={18} />
             </a>
             <a
-              href="/assets/resume/resume.pdf"
+              href="/assets/resume.pdf"
               download="Shikhar_Shaurya_Resume.pdf"
               className="px-6 py-3 text-muted-foreground font-medium hover:text-foreground transition-colors flex items-center gap-2 group"
             >
@@ -148,7 +148,7 @@ export function Hero() {
         </div>
 
         {/* Right Illustration */}
-        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative">
+        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative -mt-20 lg:-mt-40 xl:-mt-48">
           <motion.div
             animate={{ y: [-10, 10, -10] }}
             transition={{ duration: 6, ease: "easeInOut", repeat: Infinity }}
